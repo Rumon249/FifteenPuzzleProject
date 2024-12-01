@@ -1,0 +1,107 @@
+/* General Styling */
+body {
+    font-family: 'Celiagarcia', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+h1, p, button {
+    margin: 10px auto;
+    padding: 5px;
+}
+
+/* Home Screen Styling */
+#home-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+}
+
+button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Game Screen */
+#game-screen .game-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ddd;
+}
+
+#puzzle-container {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    background-color: #eee;
+    border: 3px solid #ccc;
+}
+
+.puzzle-tile {
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.puzzle-tile.empty {
+    background: none;
+    cursor: default;
+    border: none;
+}
+
+
+/* Victory Screen */
+#victory-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: white;
+}
+
+/* Settings Screen */
+#settings-screen {
+    padding: 20px;
+}
+
+.image-option {
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.image-option.selected {
+    border-color: #333;
+}

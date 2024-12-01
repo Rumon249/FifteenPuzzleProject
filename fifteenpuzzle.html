@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fifteen Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Celiagarcia&display=swap" rel="stylesheet">
+    <script defer src="fifteenpuzzle.js"></script>
+</head>
+<body>
+    <!-- Home Screen -->
+    <div id="home-screen">
+        <h1>Welcome to our Fifteen Puzzle Game!</h1>
+        <p>
+            The goal of this game is to unjumble the 15 squares to uncover the rightfully aligned background image. 
+            Want to test your skills? Click the play button to start the game!
+        </p>
+        <button id="play-button">Play</button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" style="display: none;">
+        <div class="game-header">
+            <button id="settings-button">Settings</button>
+            <button id="shuffle-button">Shuffle</button>
+        </div>
+        <div id="puzzle-container"></div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victory-screen" style="display: none;">
+        <h1>Congratulations! You solved the puzzle!</h1>
+        <button id="play-again-button">Play Again</button>
+    </div>
+
+    <!-- Settings Screen -->
+    <div id="settings-screen" style="display: none;">
+        <h2>Settings</h2>
+        <label for="theme-selector">Select Theme:</label>
+        <select id="theme-selector">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="classic">Classic</option>
+        </select>
+        <h3>Select Puzzle Image:</h3>
+        <div id="image-options">
+            <img src="img1.png" class="image-option" alt="Image 1">
+            <img src="img2.png" class="image-option" alt="Image 2">
+            <img src="img3.png" class="image-option" alt="Image 3">
+            <img src="img4.png" class="image-option" alt="Image 4">
+            <img src="img5.png" class="image-option" alt="Image 5">
+        </div>
+        <button id="save-settings-button">Save</button>
+    </div>
+</body>
+</html>
