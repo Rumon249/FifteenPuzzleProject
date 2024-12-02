@@ -10,6 +10,7 @@ const settingsButton = document.getElementById('settings-button');
 const saveSettingsButton = document.getElementById('save-settings-button');
 const puzzleContainer = document.getElementById('puzzle-container');
 const imageOptions = document.querySelectorAll('.image-option');
+const themeSelector = document.getElementById('theme-selector');
 
 // Game state
 let selectedImage = 'img1.png';
@@ -87,6 +88,13 @@ function checkVictory() {
 }
 
 function saveSettings() {
+    const selectedTheme = themeSelector.value;
+    document.body.className = selectedTheme; 
+    const screens = document.querySelectorAll('#settings-screen, #home-screen, #game-screen, #victory-screen'); 
+    screens.forEach(screen => {
+         screen.className = selectedTheme; // Apply the selected theme to all screens 
+         });
+
     toggleScreen(gameScreen);
 }
 

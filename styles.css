@@ -105,3 +105,41 @@ button:hover {
 .image-option.selected {
     border-color: #333;
 }
+
+/* Default (light mode) styles */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark mode styles */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.classic { 
+    background-color: salmon; color: #000000; 
+}
+
+#settings-screen.dark, 
+#home-screen.dark, 
+#game-screen.dark, 
+#victory-screen.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+#settings-screen.classic, 
+#home-screen.classic, 
+#game-screen.classic, 
+#victory-screen.classic {
+    background-color: salmon;
+    color: black;
+}
+
+
+
+
+
+
