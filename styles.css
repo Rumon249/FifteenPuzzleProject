@@ -1,4 +1,11 @@
 /* General Styling */
+@font-face {
+    font-family: 'Celiagarcia';
+    src: url('celia-garcia.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: 'Celiagarcia', sans-serif;
     margin: 0;
@@ -11,6 +18,7 @@ body {
 h1, p, button {
     margin: 10px auto;
     padding: 5px;
+    font-size: 24px;
 }
 
 /* Home Screen Styling */
