@@ -26,7 +26,7 @@ imageOptions.forEach(option =>
     option.addEventListener('click', () => selectImage(option))
 );
 
-// Functions
+
 function startGame() {
     toggleScreen(gameScreen);
     initializePuzzle();
@@ -40,11 +40,21 @@ function initializePuzzle() {
 }
 
 function shuffleTiles() {
-    do {
+    let isValid = false;
+
+    while (!isValid) {
+        // Generate a shuffled array with numbers 1-15 and one `null` for the empty space
+        tiles = Array.from({ length: 15 }, (_, i) => i + 1).concat(null);
         tiles.sort(() => Math.random() - 0.5);
-    } while (!isSolvable());
+
+        // Check solvability
+        isValid = isSolvable();
+    }
+
     renderPuzzle();
 }
+
+
 
 function renderPuzzle() {
     puzzleContainer.innerHTML = '';
@@ -113,10 +123,22 @@ function toggleScreen(screen) {
 }
 
 function isSolvable() {
-    const inversions = tiles
-        .filter(tile => tile !== null)
-        .flatMap((tile, i, arr) => arr.slice(i + 1).map(next => tile > next ? 1 : 0))
-        .reduce((acc, inv) => acc + inv, 0);
+    const flatTiles = tiles.filter(tile => tile !== null); // Exclude the empty tile
+    let inversions = 0;
+    // Count inversions (pairs where a larger number precedes a smaller one)
+    for (let i = 0; i < flatTiles.length; i++) {
+        for (let j = i + 1; j < flatTiles.length; j++) {
+            if (flatTiles[i] > flatTiles[j]) {
+                inversions++;
+            }
+        }
+    }
+    // Calculate the row of the empty tile from the bottom (1-based index)
     const emptyRowFromBottom = 4 - Math.floor(tiles.indexOf(null) / 4);
-    return (inversions + emptyRowFromBottom) % 2 === 0;
+    // A puzzle is solvable if:
+    // Number of inversions is even when the empty tile is on an odd row from the bottom
+    // Number of inversions is odd when the empty tile is on an even row from the bottom
+    return (inversions % 2 === 0) === (emptyRowFromBottom % 2 !== 0);
 }
+
+
